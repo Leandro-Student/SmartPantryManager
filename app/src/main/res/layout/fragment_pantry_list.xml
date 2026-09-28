@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Pantry List screen.
-    CoordinatorLayout is used as the root so the FloatingActionButton
-    behaves correctly (e.g. moves up when a Snackbar appears).
+    Pantry List fragment layout (formerly activity_pantry_list.xml).
+    CoordinatorLayout is the root so the FloatingActionButton behaves correctly.
 -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,7 +9,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PantryListActivity">
+    tools:context=".PantryListFragment">
 
     <!-- The scrolling list of pantry items. -->
     <androidx.recyclerview.widget.RecyclerView
@@ -22,7 +21,7 @@
         android:paddingBottom="88dp"
         tools:listitem="@layout/item_pantry" />
 
-    <!-- Shown in the center of the screen when the pantry has no items. -->
+    <!-- Shown in the centre of the screen when the pantry has no items. -->
     <TextView
         android:id="@+id/emptyStateText"
         android:layout_width="wrap_content"

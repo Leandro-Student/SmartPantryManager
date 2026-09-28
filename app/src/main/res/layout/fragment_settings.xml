@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings screen: two preference switches and a short About section. -->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Toggle for expiring-soon alerts. -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchExpiryAlerts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Expiring soon alerts"
+            android:textSize="16sp" />
+
+        <!-- Toggle for preferring metric units. -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchMetric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:text="Prefer metric units"
+            android:textSize="16sp" />
+
+        <!-- About section. -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="About"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Smart Pantry Manager suggests only recipes you can make right now. It uses strict matching: a recipe appears only if every ingredient is in your pantry in a sufficient quantity, so you never start cooking and discover something is missing."
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</ScrollView>
