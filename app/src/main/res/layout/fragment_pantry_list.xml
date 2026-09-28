@@ -21,7 +21,7 @@
         android:paddingBottom="88dp"
         tools:listitem="@layout/item_pantry" />
 
-    <!-- Shown in the centre of the screen when the pantry has no items. -->
+    <!-- Shown in the center of the screen when the pantry has no items. -->
     <TextView
         android:id="@+id/emptyStateText"
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="24dp"
-        android:text="Your pantry is empty.\nTap + to add your first item."
+        android:text="@string/pantry_empty_state"
         android:textSize="18sp"
         android:visibility="gone" />
 
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Add pantry item"
+        android:contentDescription="@string/add_pantry_item"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

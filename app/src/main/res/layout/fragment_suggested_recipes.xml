@@ -25,7 +25,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="24dp"
-        android:text="No recipes match your pantry yet - add more ingredients"
+        android:text="@string/no_recipes_match"
         android:textSize="18sp"
         android:visibility="gone" />
 

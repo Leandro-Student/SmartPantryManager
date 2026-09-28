@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">SmartPantryManager</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_pantry">Pantry</string>
+    <string name="nav_recipes">Recipes</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Pantry list -->
+    <string name="pantry_empty_state">Your pantry is empty.\nTap + to add your first item.</string>
+    <string name="add_pantry_item">Add pantry item</string>
+    <string name="delete_item">Delete item</string>
+
+    <!-- Add / edit ingredient form -->
+    <string name="label_ingredient_name">Ingredient name</string>
+    <string name="hint_ingredient_name">e.g. Whole Milk</string>
+    <string name="label_quantity">Quantity</string>
+    <string name="hint_quantity">e.g. 2.5</string>
+    <string name="label_unit">Unit</string>
+    <string name="label_expiry_date">Expiry date (optional)</string>
+    <string name="hint_expiry_date">YYYY-MM-DD</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+
+    <!-- Suggested recipes -->
+    <string name="no_recipes_match">No recipes match your pantry yet - add more ingredients</string>
+
+    <!-- Settings -->
+    <string name="setting_expiry_alerts">Expiring soon alerts</string>
+    <string name="setting_metric_units">Prefer metric units</string>
+    <string name="about_title">About</string>
+    <string name="about_description">Smart Pantry Manager suggests only recipes you can make right now. It uses strict matching: a recipe appears only if every ingredient is in your pantry in a sufficient quantity, so you never start cooking and discover something is missing.</string>
+
+    <!-- Recipe detail -->
+    <string name="label_ingredients">Ingredients</string>
+    <string name="label_instructions">Instructions</string>
 </resources>
