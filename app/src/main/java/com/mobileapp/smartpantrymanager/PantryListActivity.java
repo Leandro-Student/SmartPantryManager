@@ -1,5 +1,6 @@
 package com.mobileapp.smartpantrymanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,8 +20,7 @@ import java.util.List;
  * Screen that shows every item in the user's pantry.
  * The list is reloaded from the database each time the screen is shown.
  */
-public class PantryListActivity extends AppCompatActivity
-        implements PantryAdapter.OnPantryItemClickListener {
+public class PantryListActivity extends AppCompatActivity implements PantryAdapter.OnPantryItemClickListener {
 
     private DatabaseHelper databaseHelper;
     private PantryAdapter adapter;
@@ -46,9 +46,12 @@ public class PantryListActivity extends AppCompatActivity
         pantryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         pantryRecyclerView.setAdapter(adapter);
 
-        // Placeholder for the future AddEditIngredientActivity.
-        fabAddItem.setOnClickListener(v ->
-                Toast.makeText(this, "Add item clicked", Toast.LENGTH_SHORT).show());
+        // Open the Add/Edit screen in "Add" mode when the + button is clicked.
+        fabAddItem.setOnClickListener(v -> {
+            Intent intent = new Intent(PantryListActivity.this, AddEditIngredientActivity.class);
+            intent.putExtra("pantry_id", -1); // -1 means Add mode
+            startActivity(intent);
+        });
     }
 
     /**
@@ -85,10 +88,12 @@ public class PantryListActivity extends AppCompatActivity
         }
     }
 
-    /** Called when a row is tapped. Placeholder until the edit screen exists. */
+    /** Called when a row is tapped. Opens the Edit screen with the item's data. */
     @Override
     public void onItemClick(PantryItem item) {
-        Toast.makeText(this, "Clicked: " + item.getName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(PantryListActivity.this, AddEditIngredientActivity.class);
+        intent.putExtra("pantry_id", item.getId()); // Pass the ID to Edit mode
+        startActivity(intent);
     }
 
     /** Called when a row's delete button is tapped. Asks for confirmation first. */
