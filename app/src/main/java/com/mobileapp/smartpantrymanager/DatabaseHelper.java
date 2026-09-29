@@ -315,11 +315,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * DELETE: removes the pantry item with the given id.
-     * @return number of rows deleted (1 on success, 0 if the id was not found)
      */
-    public int deletePantryItem(int id) {
+    public void deletePantryItem(int id) {
         SQLiteDatabase db = getWritableDatabase();
-        return db.delete(TABLE_PANTRY, COL_ID + " = ?", new String[]{String.valueOf(id)});
+        db.delete(TABLE_PANTRY, COL_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
     // ------------------------------------------------------------------

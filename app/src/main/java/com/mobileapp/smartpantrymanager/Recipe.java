@@ -1,5 +1,7 @@
 package com.mobileapp.smartpantrymanager;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +13,11 @@ import java.util.List;
 public class Recipe {
 
     private int id;                              // Database primary key (_id)
-    private String name;                         // Recipe title, e.g. "Cheese Omelette"
+    private String name;                         // Recipe title, e.g. "Cheese Omelet"
     private String instructions;                 // Cooking steps as plain text
     private List<RecipeIngredient> ingredients;  // Ingredients required for this recipe
 
-    /** Empty constructor - initialises an empty ingredient list to avoid null checks. */
+    /** Empty constructor - initializes an empty ingredient list to avoid null checks. */
     public Recipe() {
         this.ingredients = new ArrayList<>();
     }
@@ -77,6 +79,7 @@ public class Recipe {
         this.ingredients = (ingredients != null) ? ingredients : new ArrayList<>();
     }
 
+    @NonNull
     @Override
     public String toString() {
         return name + " (" + ingredients.size() + " ingredients)";

@@ -7,8 +7,7 @@ import java.util.Map;
 
 /**
  * Decides which recipes can be cooked with what is currently in the pantry.
- *
- * STRICT MATCHING means a recipe is suggested only if EVERY ingredient passes:
+ * * STRICT MATCHING means a recipe is suggested only if EVERY ingredient passes:
  *   1. the ingredient exists in the pantry (names compared after normalization), AND
  *   2. the pantry holds at least the required amount, compared in a common base unit.
  * A single missing ingredient, incompatible unit or shortfall rules the recipe out.
@@ -34,7 +33,7 @@ public final class MatchingEngine {
             return matches;
         }
 
-        // STEP 1: Summarise the pantry once, so each ingredient check is a fast lookup.
+        // STEP 1: Summarize the pantry once, so each ingredient check is a fast lookup.
         Map<String, Double> pantryTotals = buildPantryTotals(pantry);
 
         // STEP 2: Test every recipe against that summary.
@@ -56,8 +55,7 @@ public final class MatchingEngine {
         for (PantryItem item : pantry) {
             String key = makeKey(item.getName(), item.getUnit());
             double amount = comparableQuantity(item.getQuantity(), item.getUnit());
-            Double existing = totals.get(key);
-            totals.put(key, (existing == null) ? amount : existing + amount);
+            totals.compute(key, (k, existing) -> (existing == null) ? amount : existing + amount);
         }
         return totals;
     }

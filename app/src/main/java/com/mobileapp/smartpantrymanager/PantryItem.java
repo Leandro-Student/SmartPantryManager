@@ -1,5 +1,7 @@
 package com.mobileapp.smartpantrymanager;
 
+import androidx.annotation.NonNull;
+
 /**
  * Model class representing a single item stored in the user's pantry.
  * Maps to a row in the "pantry_items" table.
@@ -8,34 +10,13 @@ public class PantryItem {
 
     private int id;                 // Database primary key (_id)
     private String name;            // Display name, e.g. "Whole Milk"
-    private String normalizedName;  // Lowercase/trimmed name used for matching against recipes
     private double quantity;        // Amount on hand
     private String unit;            // Unit of measure, e.g. "g", "ml", "pcs"
     private String expiryDate;      // Expiry date as text, e.g. "2026-12-31"
+    private String normalizedName;
 
     /** Empty constructor (useful for building the object with setters). */
     public PantryItem() {
-    }
-
-    /** Constructor without id - used when creating a new item before it is saved. */
-    public PantryItem(String name, String normalizedName, double quantity,
-                      String unit, String expiryDate) {
-        this.name = name;
-        this.normalizedName = normalizedName;
-        this.quantity = quantity;
-        this.unit = unit;
-        this.expiryDate = expiryDate;
-    }
-
-    /** Full constructor - used when reading an existing row from the database. */
-    public PantryItem(int id, String name, String normalizedName, double quantity,
-                      String unit, String expiryDate) {
-        this.id = id;
-        this.name = name;
-        this.normalizedName = normalizedName;
-        this.quantity = quantity;
-        this.unit = unit;
-        this.expiryDate = expiryDate;
     }
 
     // ---------------------- Getters and setters ----------------------
@@ -56,11 +37,8 @@ public class PantryItem {
         this.name = name;
     }
 
-    public String getNormalizedName() {
-        return normalizedName;
-    }
-
     public void setNormalizedName(String normalizedName) {
+        // Lowercase/trimmed name used for matching against recipes
         this.normalizedName = normalizedName;
     }
 
@@ -88,6 +66,7 @@ public class PantryItem {
         this.expiryDate = expiryDate;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return name + " (" + quantity + " " + unit + ", expires " + expiryDate + ")";

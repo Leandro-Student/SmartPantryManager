@@ -5,16 +5,14 @@ import java.util.Locale;
 /**
  * Turns ingredient names into a canonical form so that pantry items and recipe
  * ingredients can be compared reliably.
- *
  * Examples:
  *   "  Tomatoes! " -> "tomato"
  *   "Potatoes"     -> "potato"
  *   "Berries"      -> "berry"
  *   "Eggs"         -> "egg"
  *   "Olive Oil"    -> "olive oil"
- *
  * What matters is that BOTH sides of a comparison go through this same method,
- * so even imperfect singular forms (e.g. "cookies" -> "cooky") still match.
+ * so even imperfect singular forms (e.g. "cookies" -> "cookie") still match.
  */
 public final class IngredientNormalizer {
 
@@ -35,7 +33,7 @@ public final class IngredientNormalizer {
         // 1) Lowercase and trim surrounding spaces.
         String result = name.trim().toLowerCase(Locale.ROOT);
 
-        // 2) Treat hyphens as spaces ("all-purpose" == "all purpose"), then drop
+        // 2) Treat hyphens as spaces ("all-purpose" == "all-purpose"), then drop
         //    every other character that is not a letter, digit or whitespace.
         result = result.replace('-', ' ');
         result = result.replaceAll("[^\\p{L}\\p{N}\\s]", "");
@@ -73,8 +71,8 @@ public final class IngredientNormalizer {
         }
 
         // peaches -> peach, radishes -> radish, boxes -> box, glasses -> glass.
-        if (word.endsWith("ches") || word.endsWith("shes")
-                || word.endsWith("xes") || word.endsWith("sses")) {
+        if (word.endsWith("chess") || word.endsWith("shes")
+                || word.endsWith("xes") || word.endsWith("sees")) {
             return word.substring(0, len - 2);
         }
 

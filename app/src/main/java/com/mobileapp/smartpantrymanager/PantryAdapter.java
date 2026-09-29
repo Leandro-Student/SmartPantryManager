@@ -1,5 +1,6 @@
 package com.mobileapp.smartpantrymanager;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
      * Replaces the displayed data with a fresh list and refreshes the RecyclerView.
      * Called by the Activity after reloading from the database.
      */
+    @SuppressLint("NotifyDataSetChanged")
     public void setItems(List<PantryItem> newItems) {
         this.items = (newItems != null) ? newItems : new ArrayList<>();
         notifyDataSetChanged();
@@ -94,6 +96,7 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
         }
 
         /** Binds one PantryItem to the row's views and wires up click listeners. */
+        @SuppressLint("SetTextI18n")
         void bind(final PantryItem item, final OnPantryItemClickListener listener) {
             // Show the item's data.
             textName.setText(item.getName());
