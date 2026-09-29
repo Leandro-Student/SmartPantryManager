@@ -37,7 +37,8 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
     // Options shown in the Unit spinner (a list so we can add an unknown unit when editing).
     private final List<String> units = new ArrayList<>(
-            Arrays.asList("piece", "pcs", "cloves", "g", "kg", "ml", "l", "tbsp", "tsp", "cup"));
+            Arrays.asList("piece", "pcs", "slice", "cloves", "g", "kg", "ml", "l",
+                    "tbsp", "tsp", "cup", "can", "bunch", "pinch"));
     private ArrayAdapter<String> unitAdapter;
 
     private int pantryId = -1;        // -1 means ADD mode

@@ -9,7 +9,7 @@ import java.util.Map;
  *   - weight -> grams
  *   - volume -> milliliters
  *   - pieces -> "count"
- * Units that are not recognised (e.g. "tbsp", "cup", "slice") cannot be converted.
+ * Units that are not recognized (e.g. "tbsp", "cup", "slice") cannot be converted.
  */
 public final class UnitConverter {
 
@@ -32,7 +32,7 @@ public final class UnitConverter {
         register(TYPE_VOLUME, 1, "ml", "milliliter", "milliliters", "millilitre", "millilitres");
         register(TYPE_VOLUME, 1000, "l", "liter", "liters", "litre", "litres");
         register(TYPE_COUNT, 1, "piece", "pieces", "pc", "pcs", "clove", "cloves",
-                "unit", "units", "count");
+                "unit", "units", "count", "slice");
     }
 
     private UnitConverter() {
@@ -56,8 +56,8 @@ public final class UnitConverter {
     }
 
     /**
-     * Returns the measurement type of a unit ("weight", "volume" or "count"),
-     * or null if the unit is not recognised.
+     * Returns the measurement of a unit ("weight", "volume" or "count"),
+     * or null if the unit is not recognized.
      */
     public static String getUnitType(String unit) {
         return TYPES.get(normalizeUnit(unit));
